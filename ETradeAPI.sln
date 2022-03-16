@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2D9D799C-A8A9-4B2B-83BB-75FA9550E386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETradeAPI.Domain", "Core\ETradeAPI.Domain\ETradeAPI.Domain.csproj", "{C073B784-E954-49B2-AFC3-C1D522EE4A38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETradeAPI.Application", "Core\ETradeAPI.Application\ETradeAPI.Application.csproj", "{910EC012-1E45-4771-A17C-72051B565D3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{834E2274-09DF-425D-95E9-E979AA50C40C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETradeAPI.Infrastructure", "Infrastructure\ETradeAPI.Infrastructure\ETradeAPI.Infrastructure.csproj", "{28D4FB22-BF6E-4377-A777-4267B600DB80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETradeAPI.Persistance", "Infrastructure\ETradeAPI.Persistance\ETradeAPI.Persistance.csproj", "{9F398036-07CA-4C8A-87C2-3DA8F00051B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8BB871E2-6641-451D-9D86-52C3A31F978D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETradeAPI.API", "Presentation\ETradeAPI.API\ETradeAPI.API.csproj", "{71D859AD-6F18-4506-86C8-5317BF4E8C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C073B784-E954-49B2-AFC3-C1D522EE4A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C073B784-E954-49B2-AFC3-C1D522EE4A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C073B784-E954-49B2-AFC3-C1D522EE4A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C073B784-E954-49B2-AFC3-C1D522EE4A38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910EC012-1E45-4771-A17C-72051B565D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910EC012-1E45-4771-A17C-72051B565D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910EC012-1E45-4771-A17C-72051B565D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910EC012-1E45-4771-A17C-72051B565D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D4FB22-BF6E-4377-A777-4267B600DB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D4FB22-BF6E-4377-A777-4267B600DB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D4FB22-BF6E-4377-A777-4267B600DB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D4FB22-BF6E-4377-A777-4267B600DB80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F398036-07CA-4C8A-87C2-3DA8F00051B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F398036-07CA-4C8A-87C2-3DA8F00051B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F398036-07CA-4C8A-87C2-3DA8F00051B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F398036-07CA-4C8A-87C2-3DA8F00051B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D859AD-6F18-4506-86C8-5317BF4E8C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D859AD-6F18-4506-86C8-5317BF4E8C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D859AD-6F18-4506-86C8-5317BF4E8C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D859AD-6F18-4506-86C8-5317BF4E8C53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C073B784-E954-49B2-AFC3-C1D522EE4A38} = {2D9D799C-A8A9-4B2B-83BB-75FA9550E386}
+		{910EC012-1E45-4771-A17C-72051B565D3D} = {2D9D799C-A8A9-4B2B-83BB-75FA9550E386}
+		{28D4FB22-BF6E-4377-A777-4267B600DB80} = {834E2274-09DF-425D-95E9-E979AA50C40C}
+		{9F398036-07CA-4C8A-87C2-3DA8F00051B3} = {834E2274-09DF-425D-95E9-E979AA50C40C}
+		{71D859AD-6F18-4506-86C8-5317BF4E8C53} = {8BB871E2-6641-451D-9D86-52C3A31F978D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F72E95D3-2793-4697-8DE7-1ECD710E625A}
+	EndGlobalSection
+EndGlobal
