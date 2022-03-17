@@ -19,13 +19,16 @@ namespace ETradeAPI.API.Controllers
         [HttpGet]
         public async Task Get()
         {
-            await _productWriteRepository.AddRangeAsync(new()
-            {
-                new() { Id = Guid.NewGuid(),Name ="Product1",UnitPrice =100,CreatedDate = DateTime.UtcNow,Stock=10 },
-                new() { Id = Guid.NewGuid(), Name = "Product2", UnitPrice = 200, CreatedDate = DateTime.UtcNow, Stock = 10 },
-                new() { Id = Guid.NewGuid(), Name = "Product3", UnitPrice = 300, CreatedDate = DateTime.UtcNow, Stock = 10 },
-            });
-            _productWriteRepository.SaveAsync(); 
+            //await _productWriteRepository.AddRangeAsync(new()
+            //{
+            //    new() { Id = Guid.NewGuid(),Name ="Product1",UnitPrice =100,CreatedDate = DateTime.UtcNow,Stock=10 },
+            //    new() { Id = Guid.NewGuid(), Name = "Product2", UnitPrice = 200, CreatedDate = DateTime.UtcNow, Stock = 10 },
+            //    new() { Id = Guid.NewGuid(), Name = "Product3", UnitPrice = 300, CreatedDate = DateTime.UtcNow, Stock = 10 },
+            //});
+            //_productWriteRepository.SaveAsync(); 
+            Product p = await _productReadRepository.GetByIdAsync("8a976470-54a6-46be-ada6-08e1ace916ce",false);
+            p.Name = "Pantolon";
+            await _productWriteRepository.SaveAsync();
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
