@@ -31,6 +31,6 @@ namespace ETradeAPI.Persistance.Repositories
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> filter)
             => await Table.FirstOrDefaultAsync(filter);
         public async Task<T> GetByIdAsync(string id)
-            => await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+            => await Table.FindAsync(Guid.Parse(id));
     }
 }
