@@ -1,4 +1,6 @@
-﻿using ETradeAPI.Application.Repositories.ProductRepository;
+﻿using ETradeAPI.Application.Repositories.CustomerRepository;
+using ETradeAPI.Application.Repositories.OrderRepository;
+using ETradeAPI.Application.Repositories.ProductRepository;
 using ETradeAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,31 +13,30 @@ namespace ETradeAPI.API.Controllers
     {
         readonly private IProductWriteRepository _productWriteRepository;
         readonly private IProductReadRepository _productReadRepository;
-        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository)
+
+        readonly private IOrderWriteRepository _orderWriteRepository;
+        readonly IOrderReadRepository _orderReadRepository;
+
+        readonly private ICustomerWriteRepository _customerWriteRepository;
+        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository,
+            IOrderReadRepository orderReadRepository,IOrderWriteRepository orderWriteRepository,ICustomerWriteRepository customerWriteRepository)
         {
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
+            _orderReadRepository = orderReadRepository;
+            _orderWriteRepository = orderWriteRepository;
+            _customerWriteRepository = customerWriteRepository;
         }
+
         [HttpGet]
         public async Task Get()
         {
-            //await _productWriteRepository.AddRangeAsync(new()
-            //{
-            //    new() { Id = Guid.NewGuid(),Name ="Product1",UnitPrice =100,CreatedDate = DateTime.UtcNow,Stock=10 },
-            //    new() { Id = Guid.NewGuid(), Name = "Product2", UnitPrice = 200, CreatedDate = DateTime.UtcNow, Stock = 10 },
-            //    new() { Id = Guid.NewGuid(), Name = "Product3", UnitPrice = 300, CreatedDate = DateTime.UtcNow, Stock = 10 },
-            //});
-            //_productWriteRepository.SaveAsync(); 
-            Product p = await _productReadRepository.GetByIdAsync("8a976470-54a6-46be-ada6-08e1ace916ce",false);
-            p.Name = "Pantolon";
-            await _productWriteRepository.SaveAsync();
+            var order = await _orderReadRepository.GetByIdAsync("16aad464-f936-42ba-bca1-1c2e60dd527c");
+            order.Address = "İzmir";
+            await _orderWriteRepository.SaveAsync();
+            
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
-        {
-            Product product = await _productReadRepository.GetByIdAsync(id);
-            return Ok(product);
-        }
+        
 
     }
 }

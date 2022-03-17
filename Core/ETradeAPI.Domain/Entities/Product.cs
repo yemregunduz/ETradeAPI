@@ -11,7 +11,7 @@ namespace ETradeAPI.Domain.Entities
     {
         public string Name { get; set; }
         public int Stock { get; set; }
-        public long UnitPrice { get; set; }
+        public float UnitPrice { get; set; }
 
         public ICollection<Order> Orders { get; set; }
     }
