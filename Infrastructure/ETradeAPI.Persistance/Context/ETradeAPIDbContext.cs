@@ -29,7 +29,8 @@ namespace ETradeAPI.Persistance.Context
                 _ = entity.State switch
                 {
                     EntityState.Added=> entity.Entity.CreatedDate = DateTime.UtcNow,
-                    EntityState.Modified => entity.Entity.UpdatedDate = DateTime.UtcNow
+                    EntityState.Modified => entity.Entity.UpdatedDate = DateTime.UtcNow,
+                    _ => DateTime.UtcNow
                 };
             }
 
