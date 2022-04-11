@@ -40,7 +40,7 @@ namespace ETradeAPI.Persistance.Repositories
             Table.RemoveRange(entities);
             return true;
         }
-        public async Task<bool> RemoveById(string id)
+        public async Task<bool> RemoveAsync(string id)
         {
             T model = await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
             return Remove(model);
