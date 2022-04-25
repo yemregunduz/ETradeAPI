@@ -16,7 +16,7 @@ using ETradeAPI.Persistance.Repositories.ProductRepository;
 
 namespace ETradeAPI.Persistance
 {
-    public static class ServiceRegistration
+    public static class PersistanceServiceRegistration
     {
         public static void AddPersistanceServices(this IServiceCollection services)
         {
