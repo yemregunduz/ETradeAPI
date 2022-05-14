@@ -23,6 +23,7 @@ namespace ETradeAPI.Persistance.Repositories
         public async Task<bool> AddAsync(T entity)
         {
             EntityEntry<T> entityEntry = await Table.AddAsync(entity);
+            await SaveChangesAsync();
             return entityEntry.State == EntityState.Added;
         }
         public async Task<bool> AddRangeAsync(List<T> entities)
@@ -33,7 +34,8 @@ namespace ETradeAPI.Persistance.Repositories
         public bool Remove(T entity)
         {
             EntityEntry<T> entityEntry = Table.Remove(entity);
-            return entityEntry.State == EntityState.Deleted;
+            SaveChanges();
+            return entityEntry.State == EntityState.Detached;
         }
         public bool RemoveRange(List<T> entities)
         {
@@ -45,13 +47,16 @@ namespace ETradeAPI.Persistance.Repositories
             T model = await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
             return Remove(model);
         }
-        public bool Update(T entity)
+        public async Task<bool> Update(T entity)
         {
             EntityEntry entityEntry = Table.Update(entity);
+            await SaveChangesAsync();
             return entityEntry.State==EntityState.Modified;
         }
-        public async Task<int> SaveAsync()
+        public async Task<int> SaveChangesAsync()
             => await _context.SaveChangesAsync();
 
+        public int SaveChanges()
+            => _context.SaveChanges();
     }
 }

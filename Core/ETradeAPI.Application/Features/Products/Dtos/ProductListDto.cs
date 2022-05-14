@@ -12,5 +12,7 @@ namespace ETradeAPI.Application.Features.Products.Dtos
         public string Name { get; set; }
         public int Stock { get; set; }
         public decimal UnitPrice { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

@@ -13,7 +13,7 @@ builder.Services.AddCors(options=> options.AddDefaultPolicy(policy=>
 ));
 
 builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>())
-    .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
+    .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductCommandValidator>())
     .ConfigureApiBehaviorOptions(options=>options.SuppressModelStateInvalidFilter=true);
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistanceServices();
@@ -30,6 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
 
 app.UseCors();
 

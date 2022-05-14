@@ -15,7 +15,7 @@ namespace ETradeAPI.Application.Features.Products.Queries
 {
     public class GetProductListQuery:IRequest<ProductListModel>
     {
-        public RequestParameter RequestParameter { get; set; }
+        public PageRequest RequestParameter { get; set; }
         public class GetProductListQueryHandler : IRequestHandler<GetProductListQuery, ProductListModel>
         {
             private readonly IProductReadRepository _productReadRepository;

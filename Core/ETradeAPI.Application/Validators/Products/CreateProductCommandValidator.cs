@@ -1,4 +1,6 @@
-﻿using ETradeAPI.Application.ViewModels.Products;
+﻿using ETradeAPI.Application.Features.Products.Commands;
+using ETradeAPI.Application.Features.Products.Dtos;
+using ETradeAPI.Application.ViewModels.Products;
 using ETradeAPI.Domain.Constants;
 using FluentValidation;
 using System;
@@ -9,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Validators.Products
 {
-    public class CreateProductValidator:AbstractValidator<VM_CreateProduct>
+    public class CreateProductCommandValidator:AbstractValidator<CreateProductCommand>
     {
-        public CreateProductValidator()
+        public CreateProductCommandValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty()

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ETradeAPI.Application.Features.Products.Commands;
 using ETradeAPI.Application.Features.Products.Dtos;
 using ETradeAPI.Application.Features.Products.Models;
 using ETradeAPI.Application.Wrappers.Paging;
@@ -17,6 +18,9 @@ namespace ETradeAPI.Application.Features.Products.Profiles
         {
             CreateMap<Product, ProductListDto>().ReverseMap();
             CreateMap<IPaginate<Product>, ProductListModel>().ReverseMap();
+
+            CreateMap<Product, CreateProductCommand>().ReverseMap();
+            CreateMap<Product,UpdateProductCommand>().ReverseMap();
         }
     }
 }

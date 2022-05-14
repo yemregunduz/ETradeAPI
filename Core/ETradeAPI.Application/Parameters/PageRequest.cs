@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Parameters
 {
-    public class RequestParameter
+    public class PageRequest
     {
         public int Page { get; set; }
         public int PageSize { get; set; }
