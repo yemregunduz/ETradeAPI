@@ -29,6 +29,7 @@ namespace ETradeAPI.Persistance.Repositories
         public async Task<bool> AddRangeAsync(List<T> entities)
         {
             await Table.AddRangeAsync(entities);
+            await SaveChangesAsync();
             return true;
         }
         public bool Remove(T entity)
