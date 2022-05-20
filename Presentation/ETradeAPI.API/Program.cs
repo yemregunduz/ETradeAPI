@@ -2,6 +2,7 @@ using ETradeAPI.Application;
 using ETradeAPI.Application.Validators.Products;
 using ETradeAPI.Infrastructure;
 using ETradeAPI.Infrastructure.Filters;
+using ETradeAPI.Infrastructure.Services.Storage.Local;
 using ETradeAPI.Persistance;
 using FluentValidation.AspNetCore;
 
@@ -16,9 +17,14 @@ builder.Services.AddCors(options=> options.AddDefaultPolicy(policy=>
 builder.Services.AddControllers(options=>options.Filters.Add<ValidationFilter>())
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductCommandValidator>())
     .ConfigureApiBehaviorOptions(options=>options.SuppressModelStateInvalidFilter=true);
+
 builder.Services.AddApplicationServices();
+
 builder.Services.AddPersistanceServices();
+
 builder.Services.AddInfrastructureServices();
+
+builder.Services.AddStorage<LocalStorage>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

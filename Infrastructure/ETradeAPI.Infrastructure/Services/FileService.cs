@@ -1,4 +1,4 @@
-﻿using ETradeAPI.Application.Services;
+﻿
 using ETradeAPI.Infrastructure.StaticHelpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,40 +10,9 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Infrastructure.Services
 {
-    public class FileService : IFileService
+    public class FileService
     {
-        private readonly IWebHostEnvironment _webhostEnvironment;
-        public FileService(IWebHostEnvironment webHostEnvironment)
-        {
-            _webhostEnvironment = webHostEnvironment;
-        }
-        public async Task<List<(string fileName, string path)>> UploadAsync(string path, IFormFileCollection files)
-        {
-            string uploadPath = Path.Combine( _webhostEnvironment.WebRootPath,path);
-            CheckDirectoryExists(uploadPath);
-            List<(string fileName, string path)> datas = new();
-            List<bool> results = new();
-            foreach (IFormFile file in files)
-            {
-                string fileNewName = await FileRenameAsync(uploadPath,file.FileName);
-                bool result = await CopyFileAsync(Path.Combine(uploadPath, fileNewName), file);
-                datas.Add((fileNewName, $"{path}\\{fileNewName}"));
-                results.Add(result);
-            }
-            if (results.TrueForAll(r=>r.Equals(true)))
-            {
-                return datas;
-            }
-            //todo return value 
-            return null;
-        }
-        private static void CheckDirectoryExists(string directory)
-        {
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-        }
+     
 
         private static async Task<string> FileRenameAsync(string path, string fileName, bool first = true)
         {
@@ -99,22 +68,7 @@ namespace ETradeAPI.Infrastructure.Services
 
             return newFileName;
         }
-        private static async Task<bool> CopyFileAsync(string path,IFormFile file)
-        {
-            try
-            {
-                await using FileStream fileStream = new(path, FileMode.Create, FileAccess.Write, FileShare.None, 1024 * 1024, useAsync: false);
-                await file.CopyToAsync(fileStream);
-                await fileStream.FlushAsync();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                //todo log!
-                throw ex;
-            }
-            
-        }
+
     }
 
 }
