@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Infrastructure.Services.Storage.Azure
 {
-    public class AzureStorage : IAzureStorage
+    public class AzureStorage:Storage, IAzureStorage
     {
         private readonly BlobServiceClient _blobServiceClient;
         BlobContainerClient _blobContainerClient;
@@ -48,7 +48,8 @@ namespace ETradeAPI.Infrastructure.Services.Storage.Azure
             List<(string fileName, string pathOrContainerName)> datas = new();
             foreach (IFormFile file in files)
             {
-                BlobClient blobClient = _blobContainerClient.GetBlobClient(file.Name);
+                string newFileName = await FileRenameAsync(containerName, file.Name, HasFile);
+                BlobClient blobClient = _blobContainerClient.GetBlobClient(newFileName);
                 await blobClient.UploadAsync(file.OpenReadStream());
                 datas.Add((file.Name,containerName));
             }

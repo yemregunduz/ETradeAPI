@@ -1,20 +1,16 @@
-﻿
-using ETradeAPI.Infrastructure.StaticHelpers;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using ETradeAPI.Infrastructure.StaticHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ETradeAPI.Infrastructure.Services
+namespace ETradeAPI.Infrastructure.Services.Storage
 {
-    public class FileService
+    public class Storage
     {
-     
-
-        private static async Task<string> FileRenameAsync(string path, string fileName, bool first = true)
+        protected delegate bool HasFile(string pathOrContainerName,string fileName);
+        protected static async Task<string> FileRenameAsync(string pathOrContainerName, string fileName,HasFile hasFileMethod, bool first = true)
         {
             string newFileName = await Task.Run<string>(async () =>
             {
@@ -60,15 +56,13 @@ namespace ETradeAPI.Infrastructure.Services
                     }
                 }
 
-                if (File.Exists($"{path}\\{newFileName}"))
-                    return await FileRenameAsync(path, newFileName, false);
+                if (hasFileMethod(pathOrContainerName,newFileName))
+                    return await FileRenameAsync(pathOrContainerName, newFileName, hasFileMethod, false);
                 else
                     return newFileName;
             });
 
             return newFileName;
         }
-
     }
-
 }

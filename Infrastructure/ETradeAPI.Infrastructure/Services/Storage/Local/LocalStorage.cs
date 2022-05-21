@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Infrastructure.Services.Storage.Local
 {
-    public class LocalStorage : ILocalStorage
+    public class LocalStorage: Storage, ILocalStorage
     {
         private readonly IWebHostEnvironment _webhostEnvironment;
         public LocalStorage(IWebHostEnvironment webHostEnvironment)
@@ -25,7 +25,14 @@ namespace ETradeAPI.Infrastructure.Services.Storage.Local
         }
 
         public bool HasFile(string path, string fileName)
-            => File.Exists($"{path}\\{fileName}");
+        {
+            var result = File.Exists($"{path}\\{fileName}");
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public async Task<List<(string fileName, string pathOrContainerName)>> UploadAsync(string path, IFormFileCollection files)
         {
@@ -34,8 +41,10 @@ namespace ETradeAPI.Infrastructure.Services.Storage.Local
             List<(string fileName, string path)> datas = new();
             foreach (IFormFile file in files)
             {
-                bool result = await CopyFileAsync(Path.Combine(uploadPath, file.Name), file);
-                datas.Add((file.Name, $"{path}\\{file.Name}"));
+                string newFileName = await FileRenameAsync(path, file.Name, HasFile);
+
+                await CopyFileAsync($"{uploadPath}\\{newFileName}", file);
+                datas.Add((newFileName, $"{path}\\{newFileName}"));
             }
             //todo return value 
             return datas;
