@@ -4,6 +4,7 @@ using ETradeAPI.Application.Abstractions.Storage.Local;
 using ETradeAPI.Infrastructure.Enums;
 using ETradeAPI.Infrastructure.Services;
 using ETradeAPI.Infrastructure.Services.Storage;
+using ETradeAPI.Infrastructure.Services.Storage.Azure;
 using ETradeAPI.Infrastructure.Services.Storage.Local;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,6 +26,7 @@ namespace ETradeAPI.Infrastructure
         {
             services.AddScoped<IStorage, T>();
         }
+        //Tercih edilmez.
         public static void AddStorage(this IServiceCollection services, StorageType storageType)
         {
             switch (storageType)
@@ -33,6 +35,7 @@ namespace ETradeAPI.Infrastructure
                     services.AddScoped<IStorage, LocalStorage>();
                     break;
                 case StorageType.Azure:
+                    services.AddScoped<IStorage, AzureStorage>();
                     break;
                 case StorageType.AWS:
                     break;
