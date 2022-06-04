@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using ETradeAPI.Application.Features.Products.Dtos;
 using ETradeAPI.Application.Repositories.ProductRepository;
+using ETradeAPI.Application.Wrappers.Results.Abstract;
+using ETradeAPI.Application.Wrappers.Results.Concrete;
+using ETradeAPI.Domain.Constants;
 using ETradeAPI.Domain.Entities;
 using MediatR;
 using System;
@@ -11,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Features.Products.Commands
 {
-    public class CreateProductCommand:IRequest<Guid>
+    public class CreateProductCommand:IRequest<IDataResult<Product>>
     {
         public string Name { get; set; }
         public int Stock { get; set; }
         public float UnitPrice { get; set; }
-        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
+        public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, IDataResult<Product>>
         {
             private readonly IProductWriteRepository _productWriteRepository;
             private readonly IMapper _mapper;
@@ -25,11 +28,11 @@ namespace ETradeAPI.Application.Features.Products.Commands
                 _productWriteRepository = productWriteRepository;
                 _mapper = mapper;
             }
-            public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+            public async Task<IDataResult<Product>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
             {
                 Product product = _mapper.Map<Product>(request);
                 await _productWriteRepository.AddAsync(product);
-                return product.Id;
+                return new SuccessDataResult<Product>(product, Messages.ProductAdded);
             }
         }
     }

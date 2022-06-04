@@ -13,7 +13,9 @@ namespace ETradeAPI.Domain.Constants
         public static readonly string ProductsListed = "Ürünler listelendi.";
         public static readonly string ProductsListedByCurrentCategory = "Ürünler seçilen kategoriye göre listelendi.";
         public static readonly string ProductUpdated = "Ürün güncellendi.";
+        public static readonly string ProductIdIsRequired = "Ürünün ID bilgisi boş geçilemez.";
         public static readonly string CategoryAdded = "Kategori eklendi.";
+        public static readonly string ProductNotFound = "Ürün bulunamadı!";
         public static readonly string CategoryDeleted = "Kategori silindi";
         public static readonly string CategoriesListed = "Kategoriler listelendi.";
         public static readonly string CategoryUpdated = "Kategori güncellendi.";

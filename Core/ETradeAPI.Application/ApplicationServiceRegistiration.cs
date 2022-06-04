@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using ETradeAPI.Application.Features.Products.Rules;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace ETradeAPI.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
-
+            services.AddScoped<ProductBusinessRules>();
             return services;    
         }
     }
