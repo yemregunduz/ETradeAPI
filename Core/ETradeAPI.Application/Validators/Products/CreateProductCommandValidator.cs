@@ -1,13 +1,6 @@
 ﻿using ETradeAPI.Application.Features.Products.Commands;
-using ETradeAPI.Application.Features.Products.Dtos;
-using ETradeAPI.Application.ViewModels.Products;
 using ETradeAPI.Domain.Constants;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Validators.Products
 {

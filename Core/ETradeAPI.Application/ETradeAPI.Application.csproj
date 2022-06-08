@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ETradeAPI.Common\ETradeAPI.Common.csproj" />
     <ProjectReference Include="..\ETradeAPI.Domain\ETradeAPI.Domain.csproj" />
   </ItemGroup>
 

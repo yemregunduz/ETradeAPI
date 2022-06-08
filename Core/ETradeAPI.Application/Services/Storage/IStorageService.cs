@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ETradeAPI.Application.Abstractions.Storage.Local
+namespace ETradeAPI.Application.Services.Storage
 {
     public interface IStorageService : IStorage
     {

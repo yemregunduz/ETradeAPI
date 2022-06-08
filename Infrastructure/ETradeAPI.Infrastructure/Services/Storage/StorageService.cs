@@ -1,5 +1,5 @@
-﻿using ETradeAPI.Application.Abstractions.Storage;
-using ETradeAPI.Application.Abstractions.Storage.Local;
+﻿
+using ETradeAPI.Application.Services.Storage;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

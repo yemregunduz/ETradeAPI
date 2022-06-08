@@ -1,11 +1,7 @@
-﻿using ETradeAPI.Application.Abstractions.Storage.Local;
+﻿using ETradeAPI.Application.Services.Storage.Local;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ETradeAPI.Infrastructure.Services.Storage.Local
 {

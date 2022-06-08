@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ETradeAPI.Application.Abstractions.Storage.Azure
+namespace ETradeAPI.Application.Services.Storage.Local
 {
-    public interface IAzureStorage:IStorage
+    public interface ILocalStorage:IStorage
     {
     }
 }
