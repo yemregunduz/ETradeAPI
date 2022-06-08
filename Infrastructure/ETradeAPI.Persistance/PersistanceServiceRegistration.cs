@@ -19,6 +19,10 @@ using ETradeAPI.Persistance.Repositories.FileRepository.InvoiceFileRepository;
 using ETradeAPI.Application.Repositories.FileRepository.InvoiceFileRepository;
 using ETradeAPI.Application.Repositories.FileRepository.ProductImageFileRepository;
 using ETradeAPI.Persistance.Repositories.FileRepository.ProductImageFileRepository;
+using ETradeAPI.Application.Repositories.IdentityRepository;
+using ETradeAPI.Persistance.Repositories.UserRepository;
+using ETradeAPI.Application.Repositories.UserOperationClaimRepository;
+using ETradeAPI.Persistance.Repositories.UserOperationClaimRepository;
 
 namespace ETradeAPI.Persistance
 {
@@ -45,6 +49,11 @@ namespace ETradeAPI.Persistance
             services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
             services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
 
+            services.AddScoped<IUserReadRepository, UserReadRepository>();
+            services.AddScoped<IUserWriteRepository, UserWriteRepository>();
+
+            services.AddScoped<IUserOperationClaimReadRepository, UserOperationClaimReadRepository>();
+            services.AddScoped<IUserOperationClaimWriteRepository, UserOperationClaimWriteRepository>();
 
         }
     } 

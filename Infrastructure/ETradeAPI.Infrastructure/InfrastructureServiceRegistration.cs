@@ -1,17 +1,10 @@
-﻿
-using ETradeAPI.Application.Abstractions.Storage;
-using ETradeAPI.Application.Abstractions.Storage.Local;
+﻿using ETradeAPI.Application.Services.Storage;
+using ETradeAPI.Common.Security.Jwt;
 using ETradeAPI.Infrastructure.Enums;
-using ETradeAPI.Infrastructure.Services;
 using ETradeAPI.Infrastructure.Services.Storage;
 using ETradeAPI.Infrastructure.Services.Storage.Azure;
 using ETradeAPI.Infrastructure.Services.Storage.Local;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETradeAPI.Infrastructure
 {
@@ -20,6 +13,8 @@ namespace ETradeAPI.Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddScoped<IStorageService, StorageService>();
+            services.AddTransient<ITokenHelper, TokenHelper>();
+
         }
         public static void AddStorage<T>(this IServiceCollection services)
             where T: Storage,IStorage
