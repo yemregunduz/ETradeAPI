@@ -45,7 +45,14 @@ namespace ETradeAPI.Persistance.Repositories
         }
         public async Task<TEntity> Update(TEntity entity)
         {
-            Table.Update(entity);
+            var entityToUpdated = Context.Entry(entity);
+            foreach (var property in entityToUpdated.Properties)
+            {
+                if (!property.Metadata.Name.Equals("Id") && !property.Metadata.Name.Equals("CreatedDate"))
+                {
+                    property.IsModified = true;
+                }
+            }
             await SaveChangesAsync();
             return entity;
         }

@@ -1,4 +1,5 @@
 ﻿using Common.Security.Extensions;
+using ETradeAPI.Domain.Constants;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
@@ -25,7 +26,7 @@ namespace Common.Application.Pipelines
 
             bool isClaimRolesMatchedWithRequestRoles = roleClaims.FirstOrDefault(roleClaim => request.Roles.Any(role => role == roleClaim)).IsNullOrEmpty();
             if (isClaimRolesMatchedWithRequestRoles)
-                throw new Exception("You are not authorized");
+                throw new Exception(Messages.AuthorizationDenied);
 
             TResponse response = await next();
             return response;
