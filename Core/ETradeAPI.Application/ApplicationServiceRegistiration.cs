@@ -1,6 +1,8 @@
-﻿using ETradeAPI.Application.Features.Authorizations.Rules;
+﻿using Common.Application.Pipelines;
+using ETradeAPI.Application.Features.Authorizations.Rules;
 using ETradeAPI.Application.Features.Products.Rules;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,8 @@ namespace ETradeAPI.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProductBusinessRules>();
             services.AddScoped<AuthorizationBusinessRules>();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;    
         }
     }

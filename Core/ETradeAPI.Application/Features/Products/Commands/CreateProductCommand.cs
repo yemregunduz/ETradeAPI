@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Common.Application.Pipelines;
 using Common.Application.Wrappers.Results.Abstract;
 using Common.Application.Wrappers.Results.Concrete;
 using ETradeAPI.Application.Repositories.ProductRepository;
@@ -8,11 +9,14 @@ using MediatR;
 
 namespace ETradeAPI.Application.Features.Products.Commands
 {
-    public class CreateProductCommand:IRequest<IDataResult<Product>>
+    public class CreateProductCommand:IRequest<IDataResult<Product>>, ISecuredRequest
     {
         public string Name { get; set; }
         public int Stock { get; set; }
         public float UnitPrice { get; set; }
+
+        public string[] Roles => new string[] { RoleTypes.Admin,RoleTypes.ProductAdd};
+
         public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, IDataResult<Product>>
         {
             private readonly IProductWriteRepository _productWriteRepository;
