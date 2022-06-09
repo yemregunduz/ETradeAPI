@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.FileRepository.ProductImageFileRepository
 {
-    public class ProductImageFileWriteRepository : WriteRepository<ProductImageFile>, IProductImageFileWriteRepository
+    public class ProductImageFileWriteRepository : WriteRepository<ProductImageFile,ETradeAPIDbContext>, IProductImageFileWriteRepository
     {
         public ProductImageFileWriteRepository(ETradeAPIDbContext context) : base(context)
         {

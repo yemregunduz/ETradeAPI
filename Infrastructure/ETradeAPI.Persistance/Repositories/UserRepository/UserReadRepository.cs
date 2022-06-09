@@ -1,15 +1,11 @@
-﻿using ETradeAPI.Application.Repositories.IdentityRepository;
-using ETradeAPI.Domain.Entities.Identity;
+﻿using Common.Application.Repositories;
+using Common.Security.Entities;
+using ETradeAPI.Application.Repositories.IdentityRepository;
 using ETradeAPI.Persistance.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.UserRepository
 {
-    public class UserReadRepository : ReadRepository<User>, IUserReadRepository
+    public class UserReadRepository : ReadRepository<User,ETradeAPIDbContext>, IUserReadRepository
     {
         public UserReadRepository(ETradeAPIDbContext context) : base(context)
         {

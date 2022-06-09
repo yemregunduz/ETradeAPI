@@ -54,6 +54,7 @@ namespace ETradeAPI.Domain.Constants
         public static readonly string CategoryIdIsRequired = "Ürünün kategorisini girmek zorunludur.";
         public static readonly string ProductNameIsRequired = "Ürün adı boş bırakılamaz.";
         public static readonly string ProductNameIsInvalid = "Ürün adı en az 2 en fazla 150 karakter olmalıdır.";
+        public static readonly string ProductDetailsListed = "Ürün detayı getirildi.";
         public static readonly string UnitPriceIsRequired = "Ürünün birim fiyatı boş bırakılamaz.";
         public static readonly string UnitPriceIsInvalid = "Ürünün birim fiyatı sıfırdan büyük olmalıdır.";
         public static readonly string ProductDescriptionIsInvalid = "Ürün açıklaması en az 250 karakter olmalıdır.";
@@ -118,5 +119,6 @@ namespace ETradeAPI.Domain.Constants
         public static readonly string QrCodeUpdated = "Qr code güncellendi.";
         public static readonly string QrCodeLimitExceeded = "Bir masaya en fazla 12 adet qr code ekleyebilirsiniz.";
         public static readonly string StockIsRequired = "Stok bilgisi boş geçilemez.";
+        public static readonly string SamePasswordError = "Eski şifrenizle yeni şifreniz aynı olamaz.";
     }
 }

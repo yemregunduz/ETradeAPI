@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Domain.Entities.Identity;
+﻿using Common.Application.Repositories;
+using Common.Security.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

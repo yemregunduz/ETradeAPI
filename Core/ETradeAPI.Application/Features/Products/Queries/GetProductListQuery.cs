@@ -1,18 +1,13 @@
 ﻿using AutoMapper;
+using Common.Application.Wrappers.Paging;
+using Common.Application.Wrappers.Results.Abstract;
+using Common.Application.Wrappers.Results.Concrete;
 using ETradeAPI.Application.Features.Products.Models;
-using ETradeAPI.Application.Parameters;
 using ETradeAPI.Application.Repositories.ProductRepository;
-using ETradeAPI.Application.Wrappers.Paging;
-using ETradeAPI.Application.Wrappers.Results.Abstract;
-using ETradeAPI.Application.Wrappers.Results.Concrete;
+using ETradeAPI.Common.Application.Parameters;
 using ETradeAPI.Domain.Constants;
 using ETradeAPI.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Features.Products.Queries
 {

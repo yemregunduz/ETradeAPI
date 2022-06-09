@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Core\ETradeAPI.Domain\ETradeAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Pipelines\" />
+  </ItemGroup>
+
 </Project>

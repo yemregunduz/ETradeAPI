@@ -14,10 +14,12 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common.Application\Common.Application.csproj" />
+    <ProjectReference Include="..\..\Common.Security\Common.Security.csproj" />
     <ProjectReference Include="..\..\ETradeAPI.Common\ETradeAPI.Common.csproj" />
     <ProjectReference Include="..\ETradeAPI.Domain\ETradeAPI.Domain.csproj" />
   </ItemGroup>

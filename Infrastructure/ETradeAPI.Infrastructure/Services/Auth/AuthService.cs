@@ -1,14 +1,10 @@
-﻿using ETradeAPI.Application.Repositories.UserOperationClaimRepository;
+﻿using Common.Application.Wrappers.Paging;
+using Common.Security.Entities;
+using Common.Security.Jwt;
+using ETradeAPI.Application.Repositories.UserOperationClaimRepository;
 using ETradeAPI.Application.Services.Auth;
-using ETradeAPI.Application.Wrappers.Paging;
-using ETradeAPI.Common.Security.Jwt;
-using ETradeAPI.Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ETradeAPI.Infrastructure.Services.Auth
 {

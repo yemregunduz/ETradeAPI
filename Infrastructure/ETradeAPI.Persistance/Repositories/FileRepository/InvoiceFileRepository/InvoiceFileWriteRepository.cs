@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.FileRepository.InvoiceFileRepository
 {
-    public class InvoiceFileWriteRepository : WriteRepository<InvoiceFile>, IInvoiceFileWriteRepository
+    public class InvoiceFileWriteRepository : WriteRepository<InvoiceFile,ETradeAPIDbContext>, IInvoiceFileWriteRepository
     {
         public InvoiceFileWriteRepository(ETradeAPIDbContext context) : base(context)
         {

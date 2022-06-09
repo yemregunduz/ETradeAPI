@@ -1,5 +1,5 @@
-﻿using ETradeAPI.Application.Repositories.UserOperationClaimRepository;
-using ETradeAPI.Domain.Entities.Identity;
+﻿using Common.Security.Entities;
+using ETradeAPI.Application.Repositories.UserOperationClaimRepository;
 using ETradeAPI.Persistance.Context;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.UserOperationClaimRepository
 {
-    public class UserOperationClaimWriteRepository : WriteRepository<UserOperationClaim>, IUserOperationClaimWriteRepository
+    public class UserOperationClaimWriteRepository : WriteRepository<UserOperationClaim,ETradeAPIDbContext>, IUserOperationClaimWriteRepository
     {
         public UserOperationClaimWriteRepository(ETradeAPIDbContext context) : base(context)
         {

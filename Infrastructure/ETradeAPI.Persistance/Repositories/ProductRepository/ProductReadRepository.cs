@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Application.Repositories.ProductRepository;
+﻿using Common.Application.Repositories;
+using ETradeAPI.Application.Repositories.ProductRepository;
 using ETradeAPI.Domain.Entities;
 using ETradeAPI.Persistance.Context;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.ProductRepository
 {
-    public class ProductReadRepository : ReadRepository<Product>, IProductReadRepository
+    public class ProductReadRepository : ReadRepository<Product,ETradeAPIDbContext>, IProductReadRepository
     {
         public ProductReadRepository(ETradeAPIDbContext context) : base(context)
         {

@@ -1,10 +1,5 @@
-﻿using ETradeAPI.Application.Features.Products.Dtos;
-using ETradeAPI.Application.Wrappers.Paging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Application.Wrappers.Paging;
+using ETradeAPI.Application.Features.Products.Dtos;
 
 namespace ETradeAPI.Application.Features.Products.Models
 {

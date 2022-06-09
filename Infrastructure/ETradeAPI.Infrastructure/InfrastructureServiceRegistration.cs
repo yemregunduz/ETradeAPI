@@ -1,6 +1,8 @@
-﻿using ETradeAPI.Application.Services.Storage;
-using ETradeAPI.Common.Security.Jwt;
+﻿using Common.Security.Jwt;
+using ETradeAPI.Application.Services.Auth;
+using ETradeAPI.Application.Services.Storage;
 using ETradeAPI.Infrastructure.Enums;
+using ETradeAPI.Infrastructure.Services.Auth;
 using ETradeAPI.Infrastructure.Services.Storage;
 using ETradeAPI.Infrastructure.Services.Storage.Azure;
 using ETradeAPI.Infrastructure.Services.Storage.Local;
@@ -14,7 +16,7 @@ namespace ETradeAPI.Infrastructure
         {
             services.AddScoped<IStorageService, StorageService>();
             services.AddTransient<ITokenHelper, TokenHelper>();
-
+            services.AddScoped<IAuthService,AuthService>();
         }
         public static void AddStorage<T>(this IServiceCollection services)
             where T: Storage,IStorage

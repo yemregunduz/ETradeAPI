@@ -1,9 +1,5 @@
-﻿using ETradeAPI.Domain.Entities.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Application.Repositories;
+using Common.Security.Entities;
 
 namespace ETradeAPI.Application.Repositories.IdentityRepository
 {

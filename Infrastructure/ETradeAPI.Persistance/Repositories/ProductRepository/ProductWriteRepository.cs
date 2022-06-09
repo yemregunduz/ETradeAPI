@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.ProductRepository
 {
-    public class ProductWriteRepository : WriteRepository<Product>, IProductWriteRepository
+    public class ProductWriteRepository : WriteRepository<Product,ETradeAPIDbContext>, IProductWriteRepository
     {
         public ProductWriteRepository(ETradeAPIDbContext context) : base(context)
         {

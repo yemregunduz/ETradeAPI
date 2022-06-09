@@ -1,16 +1,12 @@
 ﻿using AutoMapper;
+using Common.Application.BusinessRules;
+using Common.Application.Wrappers.Results.Abstract;
+using Common.Application.Wrappers.Results.Concrete;
 using ETradeAPI.Application.Features.Products.Rules;
 using ETradeAPI.Application.Repositories.ProductRepository;
-using ETradeAPI.Application.Wrappers.Results.Abstract;
-using ETradeAPI.Application.Wrappers.Results.Concrete;
 using ETradeAPI.Domain.Constants;
 using ETradeAPI.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETradeAPI.Application.Features.Products.Commands
 {
@@ -35,7 +31,7 @@ namespace ETradeAPI.Application.Features.Products.Commands
 
             public async Task<IDataResult<Product>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
             {
-                IResult result = BusinessRules.BusinessRules.Run(await _productBusinessRules.CheckProductIsExist(request.Id));
+                IResult result = BusinessRules.Run(await _productBusinessRules.CheckProductIsExist(request.Id));
                 if (result != null)
                 {
                     return new ErrorDataResult<Product>(result.Message);

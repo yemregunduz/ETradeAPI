@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Application.Repositories.FileRepository.ProductImageFileRepository;
+﻿using Common.Application.Repositories;
+using ETradeAPI.Application.Repositories.FileRepository.ProductImageFileRepository;
 using ETradeAPI.Domain.Entities;
 using ETradeAPI.Persistance.Context;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.FileRepository.ProductImageFileRepository
 {
-    public class ProductImageFileReadRepository : ReadRepository<ProductImageFile>, IProductImageFileReadRepository
+    public class ProductImageFileReadRepository : ReadRepository<ProductImageFile,ETradeAPIDbContext>, IProductImageFileReadRepository
     {
         public ProductImageFileReadRepository(ETradeAPIDbContext context) : base(context)
         {

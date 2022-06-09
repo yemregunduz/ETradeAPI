@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.CustomerRepository
 {
-    public class CustomerWriteRepository : WriteRepository<Customer>, ICustomerWriteRepository
+    public class CustomerWriteRepository : WriteRepository<Customer,ETradeAPIDbContext>, ICustomerWriteRepository
     {
         public CustomerWriteRepository(ETradeAPIDbContext context) : base(context)
         {

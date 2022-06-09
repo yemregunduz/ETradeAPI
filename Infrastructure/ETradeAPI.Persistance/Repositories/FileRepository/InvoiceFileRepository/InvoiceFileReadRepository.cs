@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Application.Repositories.FileRepository.InvoiceFileRepository;
+﻿using Common.Application.Repositories;
+using ETradeAPI.Application.Repositories.FileRepository.InvoiceFileRepository;
 using ETradeAPI.Domain.Entities;
 using ETradeAPI.Persistance.Context;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.FileRepository.InvoiceFileRepository
 {
-    public class InvoiceFileReadRepository : ReadRepository<InvoiceFile>, IInvoiceFileReadRepository
+    public class InvoiceFileReadRepository : ReadRepository<InvoiceFile,ETradeAPIDbContext>, IInvoiceFileReadRepository
     {
         public InvoiceFileReadRepository(ETradeAPIDbContext context) : base(context)
         {

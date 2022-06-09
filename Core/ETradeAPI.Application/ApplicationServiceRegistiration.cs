@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Application.Features.Products.Rules;
+﻿using ETradeAPI.Application.Features.Authorizations.Rules;
+using ETradeAPI.Application.Features.Products.Rules;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,6 +18,7 @@ namespace ETradeAPI.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProductBusinessRules>();
+            services.AddScoped<AuthorizationBusinessRules>();
             return services;    
         }
     }

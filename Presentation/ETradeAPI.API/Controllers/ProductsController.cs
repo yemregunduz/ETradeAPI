@@ -31,8 +31,12 @@ namespace ETradeAPI.API.Controllers
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById([FromRoute] GetProductByIdQuery getProductByIdQuery)
         {
-            ProductListDto result = await _mediator.Send(getProductByIdQuery);
-            return Ok(result);
+            var result = await _mediator.Send(getProductByIdQuery);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateProductCommand createProductCommand)

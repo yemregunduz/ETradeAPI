@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.FileRepository
 {
-    public class FileWriteRepository : WriteRepository<Domain.Entities.File>, IFileWriteRepository
+    public class FileWriteRepository : WriteRepository<Domain.Entities.File,ETradeAPIDbContext>, IFileWriteRepository
     {
         public FileWriteRepository(ETradeAPIDbContext context) : base(context)
         {

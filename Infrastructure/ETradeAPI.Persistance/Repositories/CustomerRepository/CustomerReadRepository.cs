@@ -1,4 +1,5 @@
-﻿using ETradeAPI.Application.Repositories.CustomerRepository;
+﻿using Common.Application.Repositories;
+using ETradeAPI.Application.Repositories.CustomerRepository;
 using ETradeAPI.Domain.Entities;
 using ETradeAPI.Persistance.Context;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Repositories.CustomerRepository
 {
-    public class CustomerReadRepository : ReadRepository<Customer>, ICustomerReadRepository
+    public class CustomerReadRepository : ReadRepository<Customer,ETradeAPIDbContext>, ICustomerReadRepository
     {
         public CustomerReadRepository(ETradeAPIDbContext context) : base(context)
         {

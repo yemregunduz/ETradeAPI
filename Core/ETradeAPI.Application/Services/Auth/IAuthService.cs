@@ -1,6 +1,5 @@
-﻿using ETradeAPI.Common.Security.Jwt;
-using ETradeAPI.Domain.Entities.Identity;
-
+﻿using Common.Security.Entities;
+using Common.Security.Jwt;
 
 namespace ETradeAPI.Application.Services.Auth
 {

@@ -1,12 +1,8 @@
-﻿using ETradeAPI.Application.Repositories.ProductRepository;
-using ETradeAPI.Application.Wrappers.Results.Abstract;
-using ETradeAPI.Application.Wrappers.Results.Concrete;
+﻿using Common.Application.Wrappers.Results.Abstract;
+using Common.Application.Wrappers.Results.Concrete;
+using ETradeAPI.Application.Repositories.ProductRepository;
 using ETradeAPI.Domain.Constants;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ETradeAPI.Application.Features.Products.Rules
 {
