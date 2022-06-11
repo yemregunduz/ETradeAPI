@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Domain.Constants
 {
-    public static class RoleTypes
+    public static class RoleType
     {
         public static readonly string Admin = "admin";
         public static readonly string ProductAdd = "product.add";
