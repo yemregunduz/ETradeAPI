@@ -15,7 +15,7 @@ namespace ETradeAPI.Application.Features.Products.Commands
         public int Stock { get; set; }
         public float UnitPrice { get; set; }
 
-        public string[] Roles => new string[] { RoleType.Admin,RoleType.ProductAdd};
+        public string[] Roles => new string[] {};
 
         public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, IDataResult<Product>>
         {

@@ -18,8 +18,7 @@ namespace ETradeAPI.Application.Features.Authorizations.Commands
 {
     public class PasswordChangeCommand:IRequest<IDataResult<User>>
     {
-        public UserForLoginDto UserForLoginDto { get; set; }
-        public string NewPassword { get; set; }
+        public UserForPasswordChangeDto UserForPasswordChangeDto { get; set; }
         public class PasswordChangeCommandHandler : IRequestHandler<PasswordChangeCommand, IDataResult<User>>
         {
             private readonly IUserReadRepository _userReadRepository;
@@ -34,16 +33,16 @@ namespace ETradeAPI.Application.Features.Authorizations.Commands
             public async Task<IDataResult<User>> Handle(PasswordChangeCommand request, CancellationToken cancellationToken)
             {
                 IResult result = BusinessRules.Run(
-                    _authorizationBusinessRules.ComparePreviousAndNewPassword(request.NewPassword, request.UserForLoginDto.Password),
-                    await _authorizationBusinessRules.CheckPreviousPassword(request.UserForLoginDto)
+                    _authorizationBusinessRules.ComparePreviousAndNewPassword(request.UserForPasswordChangeDto.NewPassword, request.UserForPasswordChangeDto.Password),
+                    await _authorizationBusinessRules.CheckPreviousPassword(request.UserForPasswordChangeDto)
                     );
 
                 if (result!=null)
                 {
                     return new ErrorDataResult<User>(result.Message);
                 }
-                var userToUpdate = await _userReadRepository.GetSingleAsync(u => u.Email == request.UserForLoginDto.Email);
-                HashingHelper.CreatePasswordHash(request.NewPassword, out byte[] passwordHash, out byte[] passwordSalt);
+                var userToUpdate = await _userReadRepository.GetSingleAsync(u => u.Email == request.UserForPasswordChangeDto.Email);
+                HashingHelper.CreatePasswordHash(request.UserForPasswordChangeDto.NewPassword, out byte[] passwordHash, out byte[] passwordSalt);
                 userToUpdate.PasswordSalt = passwordSalt;
                 userToUpdate.PasswordHash = passwordHash;
                 var user = await _userWriteRepository.Update(userToUpdate);
