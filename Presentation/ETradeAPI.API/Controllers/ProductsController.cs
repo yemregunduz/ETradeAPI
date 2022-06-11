@@ -1,6 +1,4 @@
 ﻿using ETradeAPI.Application.Features.Products.Commands;
-using ETradeAPI.Application.Features.Products.Dtos;
-using ETradeAPI.Application.Features.Products.Models;
 using ETradeAPI.Application.Features.Products.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +36,7 @@ namespace ETradeAPI.API.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPost]
+        [HttpPost("add")]
         public async Task<IActionResult> Add([FromBody] CreateProductCommand createProductCommand)
         {
             var result = await _mediator.Send(createProductCommand);
@@ -48,8 +46,8 @@ namespace ETradeAPI.API.Controllers
             }
             return BadRequest(result);
         }
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateProductCommand updateProductCommand)
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] UpdateProductCommand? updateProductCommand)
         {
             var result = await _mediator.Send(updateProductCommand);
             if (result.Success == true)

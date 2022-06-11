@@ -1,15 +1,11 @@
-﻿using Common.Application.Pipelines;
+﻿using Common.Application.Pipelines.Authorization;
 using ETradeAPI.Application.Features.Authorizations.Rules;
 using ETradeAPI.Application.Features.Products.Rules;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ETradeAPI.Application
 {

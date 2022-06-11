@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Common.Application.Pipelines;
+using Common.Application.Pipelines.Authorization;
 using Common.Application.Wrappers.Results.Abstract;
 using Common.Application.Wrappers.Results.Concrete;
 using ETradeAPI.Application.Repositories.ProductRepository;

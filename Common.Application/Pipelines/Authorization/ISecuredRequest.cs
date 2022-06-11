@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Application.Pipelines
+namespace Common.Application.Pipelines.Authorization
 {
     public interface ISecuredRequest
     {
